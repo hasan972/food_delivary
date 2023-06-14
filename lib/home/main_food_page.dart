@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/widgets/big_text.dart';
+import 'package:food_delivary/widgets/small_text.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({super.key});
@@ -15,20 +17,34 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 45,bottom: 15),
-              padding: EdgeInsets.only(left: 20,right: 20),
+              margin: EdgeInsets.only(top: 45, bottom: 15),
+              padding: EdgeInsets.only(left: 20, right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    children: [Text("Country"), Text("City")],
+                    children: [
+                      BigText(text: "Bangladesh",color: Colors.blueAccent),
+                     Row(
+                      children: [
+                         SmallText(text: "Sirajganj",color: Colors.black54,),
+                         Icon(Icons.arrow_drop_down_rounded)
+                      ],
+                     )
+                    ],
                   ),
-                  Container(
-                    width: 45,
-                    height: 45,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.blue,
+                  Center(
+                    child: Container(
+                      width: 45,
+                      height: 45,
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 22, 141, 239),
+                      ),
                     ),
                   )
                 ],
