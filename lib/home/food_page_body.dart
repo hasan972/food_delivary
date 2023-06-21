@@ -3,6 +3,7 @@ import 'package:food_delivary/widgets/big_text.dart';
 import 'package:food_delivary/widgets/icon_and_text_widgets.dart';
 import 'package:food_delivary/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:food_delivary/utils/dimantions.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -15,7 +16,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.85);
   double _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
-  double _height = 220;
+  double _height = Dimensions.pageViewContainer;
   @override
   void initState() {
     // TODO: implement initState
@@ -39,7 +40,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(children: [
       Container(
         // color: Colors.amber,
-        height: 320,
+        height: Dimensions.pageView,
         child: PageView.builder(
             controller: pageController,
             itemCount: 5,
@@ -51,6 +52,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         dotsCount: 5,
         position: _currentPageValue.toInt(),
         decorator: DotsDecorator(
+          activeColor: Color.fromARGB(255, 22, 141, 239),
           size: const Size.square(9.0),
           activeSize: const Size(18.0, 9.0),
           activeShape:
@@ -90,7 +92,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       transform: matrix,
       child: Stack(children: [
         Container(
-          height: 220,
+          height: Dimensions.pageViewContainer,
           margin: const EdgeInsets.only(left: 10, right: 10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -102,7 +104,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 120,
+            height: Dimensions.pageViewTextContainer,
             margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -144,6 +146,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     height: 20,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconAndTextWidget(
                           icon: Icons.circle_sharp,
