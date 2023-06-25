@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:food_delivary/widgets/big_text.dart';
 import 'package:food_delivary/widgets/icon_and_text_widgets.dart';
@@ -93,9 +95,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(children: [
         Container(
           height: Dimensions.pageViewContainer,
-          margin: const EdgeInsets.only(left: 10, right: 10),
+          margin:  EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
               image: const DecorationImage(
                   fit: BoxFit.cover,
@@ -105,9 +107,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           alignment: Alignment.bottomCenter,
           child: Container(
             height: Dimensions.pageViewTextContainer,
-            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+            margin:  EdgeInsets.only(left: Dimensions.width30, right:Dimensions.width30, bottom:Dimensions.height30),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: Colors.white,
             ),
             child: Container(
@@ -116,7 +118,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   BigText(text: "Chienes Side"),
-                  SizedBox(height: 10),
+                  SizedBox(height:Dimensions.height10),
                   Row(
                     children: [
                       Wrap(
@@ -143,7 +145,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: Dimensions.height20,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

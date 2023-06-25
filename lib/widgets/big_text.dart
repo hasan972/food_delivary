@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/utils/dimantions.dart';
 
 class BigText extends StatelessWidget {
   //..........Declear variable...........//
@@ -22,7 +23,7 @@ class BigText extends StatelessWidget {
       overflow: overflow,
       style: TextStyle(
         color: color,
-        fontSize: size,
+        fontSize: Dimensions.font20,
         fontWeight: FontWeight.w400,
       ),
     );
