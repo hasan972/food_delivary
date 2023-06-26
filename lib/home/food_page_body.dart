@@ -21,19 +21,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   double _height = Dimensions.pageViewContainer;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     pageController.addListener(() {
       setState(() {
         _currentPageValue = pageController.page!;
-        // print(_currentPageValue.toString());
       });
     });
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
   }
 
@@ -50,11 +47,11 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               return _buildPageItem(position);
             }),
       ),
-      new DotsIndicator(
+       DotsIndicator(
         dotsCount: 5,
         position: _currentPageValue.toInt(),
         decorator: DotsDecorator(
-          activeColor: Color.fromARGB(255, 22, 141, 239),
+          activeColor:const Color.fromARGB(255, 22, 141, 239),
           size: const Size.square(9.0),
           activeSize: const Size(18.0, 9.0),
           activeShape:
@@ -66,7 +63,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
 //..............If i want a child container tate a size inside a parense container than using Stack......//
   Widget _buildPageItem(int index) {
-    Matrix4 matrix = new Matrix4.identity();
+    Matrix4 matrix =  Matrix4.identity();
     if (index == _currentPageValue.floor()) {
       var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor);
       var currTrans = _height * (1 - currScale) / 2;
@@ -98,7 +95,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           margin:  EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
-              color: index.isEven ? Color(0xFF69c5df) : Color(0xFF9294cc),
+              color: index.isEven ? const Color(0xFF69c5df) : const Color(0xFF9294cc),
               image: const DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage("assets/images/food-1.jpg"))),
@@ -113,7 +110,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               color: Colors.white,
             ),
             child: Container(
-              padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+              padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -147,7 +144,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   SizedBox(
                     height: Dimensions.height20,
                   ),
-                  Row(
+                 const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconAndTextWidget(

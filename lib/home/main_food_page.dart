@@ -30,7 +30,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                      Row(
                       children: [
                          SmallText(text: "Sirajganj",color: Colors.black54,),
-                         Icon(Icons.arrow_drop_down_rounded)
+                        const Icon(Icons.arrow_drop_down_rounded)
                       ],
                      )
                     ],
@@ -41,7 +41,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       height: Dimensions.height45,
                       child: Icon(
                         Icons.search,
-                        color: Colors.white,
+                        color: Colors.white,size: Dimensions.iconSize24,
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimensions.radius15),
@@ -53,7 +53,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ),
             ),
           ),
-        FoodPageBody(),
+        const FoodPageBody(),
         ],
       ),
     );

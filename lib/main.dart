@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivary/home/main_food_page.dart';
+//import 'package:food_delivary/home/main_food_page.dart';
+import 'package:food_delivary/splash_screen.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -13,13 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Food Delivary App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MainFoodPage(),
+     // home:const MainFoodPage(),
+     home: const SplashScreen(),
     );
   }
 }
