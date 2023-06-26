@@ -37,6 +37,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      //......This is the slider section...........//
       Container(
         // color: Colors.amber,
         height: Dimensions.pageView,
@@ -58,6 +59,60 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
       ),
+      //........This is the ppular section....///
+      SizedBox(height: Dimensions.height30,),
+      Container(
+        margin:EdgeInsets.only(left: Dimensions.width30),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            BigText(text: 'Popular'),
+            SizedBox(width: Dimensions.width10,),
+            Container(
+              margin: const EdgeInsets.only(bottom: 3),
+              child: BigText(text: '.',color: Colors.black26,),
+            ),
+            SizedBox(width: Dimensions.width10,),
+            Container(
+              margin: const EdgeInsets.only(bottom: 2),
+              child: SmallText(text: 'Food pairing',),
+
+            )
+          ],
+        ),
+      ),
+
+      //...............List of food and image....................//
+      Container(
+        height: 900,
+        child: ListView.builder(
+          physics: AlwaysScrollableScrollPhysics(),
+          shrinkWrap: true,
+        itemCount: 10,
+        itemBuilder: (context,index){
+          return Container(
+            margin: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
+            child:Row(
+              children: [
+                Container(
+                  width: 120,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius30),
+                    color: Colors.white38,
+                    image: DecorationImage(
+                      image: AssetImage(
+                      
+                        "assets/images/food-2.jpg"
+                      )
+                    )
+                  ),
+                )
+              ],
+            ),
+          );
+      }),
+      )
     ]);
   }
 
@@ -100,7 +155,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   fit: BoxFit.cover,
                   image: AssetImage("assets/images/food-1.jpg"))),
         ),
-        Align(
+        Align( 
           alignment: Alignment.bottomCenter,
           child: Container(
             height: Dimensions.pageViewTextContainer,
@@ -108,9 +163,16 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0xFFe8e8e8),
+                  blurRadius: 5.0,
+                )
+              ]
             ),
             child: Container(
               padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+              
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

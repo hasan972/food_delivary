@@ -34,13 +34,12 @@ class _SplashScreenState extends State<SplashScreen> {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), // Adjust the value as needed
+            borderRadius: BorderRadius.circular(50), 
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(50), // Same as the outer container's border radius
+            borderRadius: BorderRadius.circular(50), 
             child: Image.asset(
-              'assets/images/Capture.PNG', // Replace with your circular/rounded logo image path
-             
+              'assets/images/Capture.PNG',             
             ),
           ),
         ),
@@ -57,7 +56,5 @@ class _SplashScreenState extends State<SplashScreen> {
     ),
   ),
 );
-
-
   }
 }

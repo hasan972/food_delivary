@@ -45,15 +45,18 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(Dimensions.radius15),
-                        color: Color.fromARGB(255, 22, 141, 239),
+                        color: const Color.fromARGB(255, 22, 141, 239),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
           ),
-        const FoodPageBody(),
+          Expanded(child: SingleChildScrollView(
+            child: FoodPageBody(),
+          ))
+       
         ],
       ),
     );
