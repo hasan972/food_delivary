@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/pages/food/popular_food_detail.dart';
 //import 'package:food_delivary/home/main_food_page.dart';
 import 'package:food_delivary/splash_screen.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
      // home:const MainFoodPage(),
-     home: const SplashScreen(),
+    // home: const SplashScreen(),
+    home: const PopularFoodDetail(),
     );
   }
 }

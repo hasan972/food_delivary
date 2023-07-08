@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'home/main_food_page.dart';
+import 'pages/home/main_food_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -26,35 +26,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-  body: Container(
-    color: Colors.blue,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50), 
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50), 
-            child: Image.asset(
-              'assets/images/Capture.PNG',             
-            ),
-          ),
+    return Scaffold(
+        body: Container(
+      color: Colors.blue,
+      child: Center(
+        child: Text(
+          "Food Range",
+          style: TextStyle(
+              fontSize: 34, fontWeight: FontWeight.w700, color: Colors.white),
         ),
-        const SizedBox(height: 20),
-        // const Text(
-        //   'FOOD-RANGE',
-        //   style: TextStyle(
-        //     fontSize: 34,
-        //     fontWeight: FontWeight.w700,
-        //     color: Colors.white,
-        //   ),
-        // ),
-      ],
-    ),
-  ),
-);
+      ),
+    ));
   }
 }

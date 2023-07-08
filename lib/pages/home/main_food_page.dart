@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivary/home/food_page_body.dart';
+import 'package:food_delivary/pages/home/food_page_body.dart';
 import 'package:food_delivary/utils/dimantions.dart';
 import 'package:food_delivary/widgets/big_text.dart';
 import 'package:food_delivary/widgets/small_text.dart';
