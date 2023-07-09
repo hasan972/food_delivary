@@ -66,7 +66,12 @@ class PopularFoodDetail extends StatelessWidget {
                       height: Dimensions.height20,
                     ),
                     BigText(text: "Introduce"),
-                    const ExpandableTextWidgets(text: "jhsbssldw")
+                    SizedBox(height: Dimensions.height20,),
+                    const Expanded(
+                        child: SingleChildScrollView(
+                            child: ExpandableTextWidgets(
+                                text:
+                                    "Craving a light and refreshing salad but bored of the same mixed greens salad? Well, if you are looking for some major salad inspiration, the you have come to the right place. We are sharing this collection of our 40 best and most popular salad recipes so that you don't have to look any further when wondering how to make the best salad")))
                   ],
                 )),
           ),
@@ -102,9 +107,13 @@ class PopularFoodDetail extends StatelessWidget {
                     Icons.remove,
                     color: Colors.black,
                   ),
-                  SizedBox(width: Dimensions.width10/2,),
+                  SizedBox(
+                    width: Dimensions.width10 / 2,
+                  ),
                   BigText(text: "0"),
-                  SizedBox(width: Dimensions.width10/2,),
+                  SizedBox(
+                    width: Dimensions.width10 / 2,
+                  ),
                   Icon(
                     Icons.add,
                     color: Colors.black,
@@ -118,11 +127,13 @@ class PopularFoodDetail extends StatelessWidget {
                   bottom: Dimensions.height20,
                   left: Dimensions.width20,
                   right: Dimensions.width20),
-              child: BigText(text: "\$10 | Add to cart",color: Colors.white,),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: Colors.blue
+              child: BigText(
+                text: "\$10 | Add to cart",
+                color: Colors.white,
               ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  color: Colors.blue),
             )
           ],
         ),
