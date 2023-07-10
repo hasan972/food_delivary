@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivary/pages/food/popular_food_detail.dart';
+import 'package:food_delivary/pages/food/recommended_food_detail.dart';
 //import 'package:food_delivary/home/main_food_page.dart';
 import 'package:food_delivary/splash_screen.dart';
 import 'package:get/get.dart';
@@ -20,10 +21,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        primarySwatch: Colors.blue
       ),
      // home:const MainFoodPage(),
-    // home: const SplashScreen(),
-    home: const PopularFoodDetail(),
+     home: const SplashScreen(),
+    //home: const PopularFoodDetail(),
+   // home: const RecommenedFoodDetail(),
     );
   }
 }

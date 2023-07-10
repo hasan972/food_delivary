@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/pages/food/popular_food_detail.dart';
+import 'package:food_delivary/pages/food/recommended_food_detail.dart';
 import 'package:food_delivary/widgets/big_text.dart';
 import 'package:food_delivary/widgets/icon_and_text_widgets.dart';
 import 'package:food_delivary/widgets/small_text.dart';
@@ -91,84 +93,96 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       ),
 
       //...............List of food and image....................//
-      
-        //height: 900,
-         ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
+
+      //height: 900,
+      ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => RecommenedFoodDetail()),
+                );
+              },
+              child: Container(
                 margin: EdgeInsets.only(
-                    left: Dimensions.width20,
-                    right: Dimensions.width20,
-                    bottom: Dimensions.height10),
+                  left: Dimensions.width20,
+                  right: Dimensions.width20,
+                  bottom: Dimensions.height10,
+                ),
                 child: Row(
                   children: [
-                    //.........image container....//
                     Container(
                       width: Dimensions.listViewImgSize,
                       height: Dimensions.listViewImgSize,
                       decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius30),
-                          color: Colors.white38,
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage("assets/images/food-2.jpg"))),
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.radius30),
+                        color: Colors.white38,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("assets/images/food-2.jpg"),
+                        ),
+                      ),
                     ),
-                    //......text container........//
                     Expanded(
                       child: Container(
-                        height: Dimensions.listViewTextContSize ,
-                        // width: 200,
+                        height: Dimensions.listViewTextContSize,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(Dimensions.radius20),
-                              bottomRight:
-                                  Radius.circular(Dimensions.radius20)),
+                            topRight: Radius.circular(Dimensions.radius20),
+                            bottomRight: Radius.circular(Dimensions.radius20),
+                          ),
                           color: Colors.white,
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(
-                              left: Dimensions.width10,
-                              right: Dimensions.width10),
+                            left: Dimensions.width10,
+                            right: Dimensions.width10,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              BigText(text: "Nutritious frout meal in China"),
-                              SizedBox(height: Dimensions.height10,),
-                              SmallText(text: "With chinese characteristics"),
-                              SizedBox(height: Dimensions.height10,),
-                              const Row(
+                              BigText(text: "Nutritious fruit meal in China"),
+                              SizedBox(height: Dimensions.height10),
+                              SmallText(text: "With Chinese characteristics"),
+                              SizedBox(height: Dimensions.height10),
+                              Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   IconAndTextWidget(
-                                      icon: Icons.circle_sharp,
-                                      text: "Normal",
-                                      iconColor: Colors.amber),
+                                    icon: Icons.circle_sharp,
+                                    text: "Normal",
+                                    iconColor: Colors.amber,
+                                  ),
                                   IconAndTextWidget(
-                                      icon: Icons.location_on,
-                                      text: "1.7km",
-                                      iconColor: Colors.blue),
+                                    icon: Icons.location_on,
+                                    text: "1.7km",
+                                    iconColor: Colors.blue,
+                                  ),
                                   IconAndTextWidget(
-                                      icon: Icons.access_time_rounded,
-                                      text: "32min",
-                                      iconColor: Colors.amber)
+                                    icon: Icons.access_time_rounded,
+                                    text: "32min",
+                                    iconColor: Colors.amber,
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
-              );
-            }),
-      
+              ),
+            );
+          }),
     ]);
   }
 
@@ -201,18 +215,29 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Transform(
       transform: matrix,
       child: Stack(children: [
-        Container(
-          height: Dimensions.pageViewContainer,
-          margin: EdgeInsets.only(
-              left: Dimensions.width10, right: Dimensions.width10),
-          decoration: BoxDecoration(
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PopularFoodDetail()),
+            );
+          },
+          child: Container(
+            height: Dimensions.pageViewContainer,
+            margin: EdgeInsets.only(
+                left: Dimensions.width10, right: Dimensions.width10),
+            decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius30),
               color: index.isEven
                   ? const Color(0xFF69c5df)
                   : const Color(0xFF9294cc),
               image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage("assets/images/food-1.jpg"))),
+                fit: BoxFit.cover,
+                image: AssetImage("assets/images/food-1.jpg"),
+              ),
+            ),
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,

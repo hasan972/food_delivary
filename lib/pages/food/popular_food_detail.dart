@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/pages/home/main_food_page.dart';
 import 'package:food_delivary/utils/dimantions.dart';
 import 'package:food_delivary/widgets/app_column.dart';
 import 'package:food_delivary/widgets/app_icon.dart';
@@ -26,18 +27,26 @@ class PopularFoodDetail extends StatelessWidget {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage("assets/images/food-2.jpg"))),
+                      image: AssetImage("assets/images/food-1.jpg"))),
             ),
           ),
           Positioned(
             top: Dimensions.height45,
             left: Dimensions.width20,
             right: Dimensions.width20,
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.arrow_back_ios),
-                AppIcon(icon: Icons.shopping_cart_checkout)
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>const MainFoodPage()),
+                    );
+                  },
+                  child:const AppIcon(icon: Icons.arrow_back_ios),
+                ),
+                const AppIcon(icon: Icons.shopping_cart_checkout),
               ],
             ),
           ),
@@ -66,7 +75,9 @@ class PopularFoodDetail extends StatelessWidget {
                       height: Dimensions.height20,
                     ),
                     BigText(text: "Introduce"),
-                    SizedBox(height: Dimensions.height20,),
+                    SizedBox(
+                      height: Dimensions.height20,
+                    ),
                     const Expanded(
                         child: SingleChildScrollView(
                             child: ExpandableTextWidgets(
