@@ -105,7 +105,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => RecommenedFoodDetail()),
+                      builder: (context) => const RecommenedFoodDetail()),
                 );
               },
               child: Container(
@@ -124,8 +124,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             BorderRadius.circular(Dimensions.radius30),
                         color: Colors.white38,
                         image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage("assets/images/food-2.jpg"),
+                        fit: BoxFit.cover,
+                        image: AssetImage("assets/images/food-2.jpg"),
                         ),
                       ),
                     ),
@@ -152,7 +152,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               SizedBox(height: Dimensions.height10),
                               SmallText(text: "With Chinese characteristics"),
                               SizedBox(height: Dimensions.height10),
-                              Row(
+                             const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
