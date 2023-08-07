@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
         body: Container(
       color: Colors.blue,
-      child: Center(
+      child:const Center(
         child: Text(
           "Food Range",
           style: TextStyle(

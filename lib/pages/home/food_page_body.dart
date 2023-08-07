@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivary/controllers/popular_product_controller.dart';
+import 'package:food_delivary/models/products_model.dart';
 import 'package:food_delivary/pages/food/popular_food_detail.dart';
 import 'package:food_delivary/pages/food/recommended_food_detail.dart';
+import 'package:food_delivary/utils/app_constants.dart';
 import 'package:food_delivary/widgets/big_text.dart';
 import 'package:food_delivary/widgets/icon_and_text_widgets.dart';
 import 'package:food_delivary/widgets/small_text.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:food_delivary/utils/dimantions.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:food_delivary/utils/app_constants.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -38,27 +43,36 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(children: [
       //......This is the slider section...........//
-      Container(
+      GetBuilder<PopularProductController>(builder: (popularProducts){
+        return Container(
         // color: Colors.amber,
         height: Dimensions.pageView,
         child: PageView.builder(
             controller: pageController,
-            itemCount: 5,
+            itemCount: popularProducts.popularProductList.length,
             itemBuilder: (context, position) {
-              return _buildPageItem(position);
+              return _buildPageItem(position,popularProducts.popularProductList[position]);
             }),
-      ),
-      DotsIndicator(
-        dotsCount: 5,
+      );
+      }),
+      GetBuilder<PopularProductController>(builder: (popularProducts){
+          //print(popularProducts.popularProductList.length);
+        return DotsIndicator(
+        //dotsCount: popularProducts.popularProductList.length,
+        dotsCount: popularProducts.popularProductList.isEmpty
+                ? 1
+                : popularProducts.popularProductList.length,
+        
         position: _currentPageValue.toInt(),
-        decorator: DotsDecorator(
+        decorator: DotsDecorator(                                                                           
           activeColor: const Color.fromARGB(255, 22, 141, 239),
           size: const Size.square(9.0),
           activeSize: const Size(18.0, 9.0),
           activeShape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
-      ),
+      );
+      }),
       //........This is the ppular section....///
       SizedBox(
         height: Dimensions.height30,
@@ -187,7 +201,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   }
 
 //..............If i want a child container tate a size inside a parense container than using Stack......//
-  Widget _buildPageItem(int index) {
+  Widget _buildPageItem(int index,ProductModel popularProduct) {
     Matrix4 matrix = Matrix4.identity();
     if (index == _currentPageValue.floor()) {
       var currScale = 1 - (_currentPageValue - index) * (1 - _scaleFactor);
@@ -232,9 +246,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               color: index.isEven
                   ? const Color(0xFF69c5df)
                   : const Color(0xFF9294cc),
-              image: const DecorationImage(
+              image:  DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/food-1.jpg"),
+               // image: AssetImage("assets/images/food-1.jpg"),
+               image: NetworkImage(AppConstants.BASE_URL+"/uploads/"+popularProduct.img!)
               ),
             ),
           ),
